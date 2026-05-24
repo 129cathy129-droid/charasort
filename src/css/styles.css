@@ -27,8 +27,9 @@ body {
   display: none;
   text-align: center;
 
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.4;
 
   margin-top: 20px;
 }
@@ -45,8 +46,8 @@ body {
   border: 1px solid black;
   text-align: center;
 
-  width: 150px;
-  height: 70px;
+  width: 120px;
+  height: 60px;
 
   display: flex;
   justify-content: center;
@@ -126,13 +127,13 @@ body {
 }
 
 .sorter > .text {
-  width: 220px;
-  height: 260px;
+  width: 160px;
+  height: 180px;
   display: none;
   justify-content: center;
   align-items: center;
 
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .sorter > .text > p {
