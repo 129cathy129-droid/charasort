@@ -419,9 +419,8 @@ function recordData(sortType) {
  * @param {number} percentage
  */
 function progressBar(indicator, percentage) {
-  document.querySelector('.progressbattle').innerHTML = indicator;
-  document.querySelector('.progressfill').style.width = `${percentage}%`;
-  document.querySelector('.progresstext').innerHTML = `${percentage}%`;
+  document.querySelector('.progressbattle').innerHTML =
+    `${indicator} · ${percentage}% sorted`;
 }
 
 /**
