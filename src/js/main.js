@@ -132,6 +132,8 @@ function init() {
 
   /** Decode query string if available. */
   if (window.location.search.slice(1) !== '') decodeQuery();
+
+start();
 }
 
 /** Begin sorting. */
