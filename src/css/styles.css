@@ -74,7 +74,6 @@ body {
 }
 
 .sorting.button, .finished.button {
-  grid-row: span 2;
   display: none;
 }
 
