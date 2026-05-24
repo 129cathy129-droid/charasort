@@ -237,8 +237,6 @@ function start() {
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
   loading = false;
   display();
-	
-  });
 }
 
 /** Displays the current state of the sorter. */
