@@ -9,7 +9,7 @@ dataSet[dataSetVersion].options = [
     tooltip: "Check this to restrict to certain series.",
     checked: false,
     sub: [
-      { name: "House M.D. ALL", key: "all" }
+      { name: "House M.D. ALL", key: "all", checked: true }
     ]
   }
 ];
