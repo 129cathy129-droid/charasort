@@ -437,7 +437,16 @@ function result(imageNum = 3) {
   document.querySelector('.options').style.display = 'none';
   document.querySelector('.info').style.display = 'none';
 
-  const header = '<div class="result head"><div class="left">Order</div><div class="right">Name</div></div>';
+  const header = `
+  <table class="result-table">
+  	<thead>
+		<tr>
+	  		<th>순위</th>
+      		<th>이름</th>
+    	</tr>
+  </thead>
+  <tbody>
+  `;
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${sorterURL}">Do another sorter?</a>`;
   const imgRes = (char, num) => {
     const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
@@ -447,7 +456,12 @@ function result(imageNum = 3) {
   const res = (char, num) => {
     const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
     const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result"><div class="left">${num}</div><div class="right"><span title="${charTooltip}">${charName}</span></div></div>`;
+    return `
+		<tr>
+      		<td>${num}</td>
+      		<td>${char.name}</td>
+    	</tr>
+	`;
   }
 
   let rankNum       = 1;
@@ -480,6 +494,11 @@ function result(imageNum = 3) {
       }
     }
   });
+  
+  resultTable.innerHTML += `
+  	</tbody>
+  </table>
+  `;
 }
 
 /** Undo previous choice. */
