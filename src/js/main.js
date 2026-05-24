@@ -57,8 +57,6 @@ let storedSaveType  = localStorage.getItem(`${sorterURL}_saveType`);
 function init() {
 
   /** Define button behavior. */
-  document.querySelector('.starting.start.button').addEventListener('click', start);
-  document.querySelector('.starting.load.button').addEventListener('click', loadProgress);
 
   document.querySelector('.left.sort.image').addEventListener('click', () => pick('left'));
   document.querySelector('.right.sort.image').addEventListener('click', () => pick('right'));
@@ -261,17 +259,9 @@ function start() {
 
   /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
-  document.querySelectorAll('.starting.button').forEach(el => el.style.display = 'none');
-  document.querySelector('.loading.button').style.display = 'block';
-  document.querySelector('.progress').style.display = 'block';
-  loading = true;
-
-  preloadImages().then(() => {
-    loading = false;
-    document.querySelector('.loading.button').style.display = 'none';
-    document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
-    document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'block');
-    display();
+  loading = false;
+  display();
+	
   });
 }
 
