@@ -467,7 +467,7 @@ function result(imageNum = 3) {
   const resultTableContainer = document.querySelector('.results');
   const timeElem = document.querySelector('.time.taken');
 
-  resultBox.innerHTML = header;
+  resultTableContainer.innerHTML = header;
   const tableBody = resultTableContainer.querySelector('tbody');
   timeElem.innerHTML = timeStr;
 
