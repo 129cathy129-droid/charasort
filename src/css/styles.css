@@ -45,7 +45,7 @@ body {
   border: 1px solid black;
   text-align: center;
 
-  width: 140px;
+  width: 150px;
   height: 70px;
 
   display: flex;
@@ -128,17 +128,20 @@ body {
 .sorter > .text {
   width: 220px;
   height: 260px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
+
+  font-size: 24px;
 }
 
 .sorter > .text > p {
-  margin: 0.5em 5px 0px;
-  width: calc(100%-10px);
+  margin: 0;
+  padding: 10px;
+
   text-align: center;
-  font-size: 0.8em;
-  line-height: 1.5em;
+  font-size: 1.3em;
+  line-height: 1.4em;
 }
 
 .sorter > .left {
