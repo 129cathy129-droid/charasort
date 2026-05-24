@@ -453,7 +453,7 @@ function result(imageNum = 3) {
       		<td>${num}</td>
       		<td>${char.name}</td>
     	</tr>
-	`;
+		`;
   }
 
   let rankNum       = 1;
@@ -461,15 +461,14 @@ function result(imageNum = 3) {
 
   const finalSortedIndexes = sortedIndexList[0].slice(0);
   const resultTableContainer = document.querySelector('.results');
-  const timeElem = document.querySelector('.time.taken');
-
+	
   resultTableContainer.innerHTML = header;
   const tableBody = resultTableContainer.querySelector('tbody');
-  timeElem.innerHTML = timeStr;
 
   characterDataToSort.forEach((val, idx) => {
     const characterIndex = finalSortedIndexes[idx];
     const character = characterDataToSort[characterIndex];
+	  
     tableBody.insertAdjacentHTML('beforeend', res(character, rankNum));
     finalCharacters.push({ rank: rankNum, name: character.name });
 
