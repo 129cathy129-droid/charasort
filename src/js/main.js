@@ -58,8 +58,8 @@ function init() {
 
   /** Define button behavior. */
 
-  document.querySelector('.left.sort.image').addEventListener('click', () => pick('left'));
-  document.querySelector('.right.sort.image').addEventListener('click', () => pick('right'));
+  document.querySelector('.left.sort.text').addEventListener('click', () => pick('left'));
+  document.querySelector('.right.sort.text').addEventListener('click', () => pick('right'));
   
   document.querySelector('.sorting.tie.button').addEventListener('click', () => pick('tie'));
   document.querySelector('.sorting.save.button').addEventListener('click', () => pick('tie'));
@@ -69,26 +69,9 @@ function init() {
     /** If sorting is in progress. */
     if (timestamp && !timeTaken && !loading && choices.length === battleNo - 1) {
       switch(ev.key) {
-        case 's': case '3':                   saveProgress('Progress'); break;
-        case 'h': case 'ArrowLeft':           pick('left'); break;
-        case 'l': case 'ArrowRight':          pick('right'); break;
-        case 'k': case '1': case 'ArrowUp':   pick('tie'); break;
-        case 'j': case '2': case 'ArrowDown': undo(); break;
-        default: break;
-      }
-    }
-    /** If sorting has ended. */
-    else if (timeTaken && choices.length === battleNo - 1) {
-      switch(ev.key) {
-        case 'k': case '1': saveProgress('Last Result'); break;
-        case 'j': case '2': generateImage(); break;
-        case 's': case '3': generateTextList(); break;
-        default: break;
-      }
-    } else { // If sorting hasn't started yet.
-      switch(ev.key) {
-        case '1': case 's': case 'Enter': start(); break;
-        case '2': case 'l':               loadProgress(); break;
+        case 'h': case 'ArrowLeft':            pick('left'); break;
+        case 'l': case 'ArrowRight':           pick('right'); break;
+        case 'k': case '1': case 'ArrowUp':    pick('tie'); break;
         default: break;
       }
     }
