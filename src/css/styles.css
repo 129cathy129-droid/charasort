@@ -226,13 +226,9 @@ label:hover {
 }
 
 .result {
-  height: 15px;
-  margin-bottom: -1px;
-  display: grid;
-  width: 211px;
-  grid-template-columns: repeat(2, 1fr);
-  border: 1px solid #000;
-  margin-right: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .result.image {
@@ -305,7 +301,8 @@ a:visited {
 
 .result-table {
   border-collapse: collapse;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
   background: white;
 }
@@ -315,6 +312,7 @@ a:visited {
   border: 1px solid black;
   padding: 6px 10px;
   text-align: center;
+  word-break: keep-all;
 }
 
 .result-table th {
