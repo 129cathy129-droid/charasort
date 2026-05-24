@@ -2,7 +2,17 @@
 dataSetVersion = "2025-11-30";
 dataSet[dataSetVersion] = {};
 
-dataSet[dataSetVersion].options = [];
+dataSet[dataSetVersion].options = [
+  {
+    name: "Filter by Series",
+    key: "series",
+    tooltip: "Check this to restrict to certain series.",
+    checked: false,
+    sub: [
+      { name: "House M.D. ALL", key: "all" }
+    ]
+  }
+];
 
 dataSet[dataSetVersion].characterData = [
   {
