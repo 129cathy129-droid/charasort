@@ -10,32 +10,27 @@ body {
   margin-top: 1em;
 }
 
-.progress {
-  margin: 1em auto;
-  width: 500px;
+
+.progressbar {
   display: none;
 }
 
-.progressbar {
-  position: relative;
-  width: 492px;
-  border: 1px solid black;
-  padding: 3px;
-  margin: 2px 0px;
-}
-
 .progresstext {
-  position: absolute;
-  width: 492px;
-  margin: 3px 0px;
-  text-align: center;
-  font-size: 0.7em;
+  display: none;
 }
 
 .progressfill {
-  height: 20px;
-  background-color: lightgreen;
-  width: 0%;
+  display: none;
+}
+
+.progress {
+  display: none;
+  text-align: center;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  margin-top: 20px;
 }
 
 .sorter {
