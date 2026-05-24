@@ -469,16 +469,17 @@ function result(imageNum = 3) {
   let imageDisplay  = imageNum;
 
   const finalSortedIndexes = sortedIndexList[0].slice(0);
-  const resultTable = document.querySelector('.results');
+  const resultBox = document.querySelector('.results');
   const timeElem = document.querySelector('.time.taken');
 
-  resultTable.innerHTML = header;
+  resultBox.innerHTML = header;
+  const tableBody = resultBox.querySelector('tbody');
   timeElem.innerHTML = timeStr;
 
   characterDataToSort.forEach((val, idx) => {
     const characterIndex = finalSortedIndexes[idx];
     const character = characterDataToSort[characterIndex];
-    resultTable.insertAdjacentHTML(
+    tableBody.insertAdjacentHTML(
   		'beforeend',
   		res(character, rankNum)
 	);
@@ -494,10 +495,6 @@ function result(imageNum = 3) {
     }
   });
   
-  resultTable.innerHTML += `
-  	</tbody>
-  </table>
-  `;
 }
 
 /** Undo previous choice. */
