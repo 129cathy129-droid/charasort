@@ -437,7 +437,6 @@ function result(imageNum = 3) {
   document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
   document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
   document.querySelector('.options').style.display = 'none';
-  document.querySelector('.info').style.display = 'none';
 
   const header = `
   <table class="result-table">
@@ -446,18 +445,13 @@ function result(imageNum = 3) {
 	  		<th>순위</th>
       		<th>이름</th>
     	</tr>
-  </thead>
-  <tbody>
+  	</thead>
+	<tbody>
   `;
+  
   const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${sorterURL}">Do another sorter?</a>`;
-  const imgRes = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
-    const charTooltip = char.name !== charName ? char.name : '';
-    return `<div class="result image"><div class="left"><span>${num}</span></div><div class="right"><img src="${char.img}"><div><span title="${charTooltip}">${charName}</span></div></div></div>`;
-  }
+  
   const res = (char, num) => {
-    const charName = reduceTextWidth(char.name, 'Arial 12px', 160);
-    const charTooltip = char.name !== charName ? char.name : '';
     return `
 		<tr>
       		<td>${num}</td>
@@ -470,33 +464,30 @@ function result(imageNum = 3) {
   let tiedRankNum   = 1;
 
   const finalSortedIndexes = sortedIndexList[0].slice(0);
-  const resultBox = document.querySelector('.results');
+  const resultTableContainer = document.querySelector('.results');
   const timeElem = document.querySelector('.time.taken');
 
   resultBox.innerHTML = header;
-  const tableBody = resultBox.querySelector('tbody');
+  const tableBody = resultTableContainer.querySelector('tbody');
   timeElem.innerHTML = timeStr;
 
   characterDataToSort.forEach((val, idx) => {
     const characterIndex = finalSortedIndexes[idx];
     const character = characterDataToSort[characterIndex];
-    tableBody.insertAdjacentHTML(
-  		'beforeend',
-  		res(character, rankNum)
-	);
+    tableBody.insertAdjacentHTML('beforeend', res(character, rankNum));
     finalCharacters.push({ rank: rankNum, name: character.name });
 
     if (idx < characterDataToSort.length - 1) {
       if (tiedDataList[characterIndex] === finalSortedIndexes[idx + 1]) {
-        tiedRankNum++;            // Indicates how many people are tied at the same rank.
+        tiedRankNum++;            // 동일 순위 처리
       } else {
-        rankNum += tiedRankNum;   // Add it to the actual ranking, then reset it.
-        tiedRankNum = 1;          // The default value is 1, so it increments as normal if no ties.
+        rankNum += tiedRankNum;   
+        tiedRankNum = 1;          
       }
     }
   });
 
-  resultBox.insertAdjacentHTML('beforeend', '</tbody></table>');
+  resultTableContainer.insertAdjacentHTML('beforeend', '</tbody></table>');
   
 }
 
