@@ -15,49 +15,13 @@ dataSet[dataSetVersion].options = [
 ];
 
 dataSet[dataSetVersion].characterData = [
-  {
-    name: "그레고리 하우스",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "제임스 윌슨",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "리사 커디",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "에릭 포어맨",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "앨리슨 캐머런",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "로버트 체이스",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "에드워드 보글러",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "스테이시 워너",
-    img: "",
-    opts: {}
-  },
-  {
-    name: "마이클 트리터",
-    img: "",
-    opts: {}
-  }
+  { name: "그레고리 하우스", img: "", opts: { default: ["all"] } },
+  { name: "제임스 윌슨", img: "", opts: { default: ["all"] } },
+  { name: "리사 커디", img: "", opts: { default: ["all"] } },
+  { name: "에릭 포어맨", img: "", opts: { default: ["all"] } },
+  { name: "앨리슨 캐머런", img: "", opts: { default: ["all"] } },
+  { name: "로버트 체이스", img: "", opts: { default: ["all"] } },
+  { name: "에드워드 보글러", img: "", opts: { default: ["all"] } },
+  { name: "스테이시 워너", img: "", opts: { default: ["all"] } },
+  { name: "마이클 트리터", img: "", opts: { default: ["all"] } }
 ];
