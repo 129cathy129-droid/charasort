@@ -205,23 +205,10 @@ label:hover {
 .results {
   font-size: 0.75em;
   display: flex;
-  align-content: flex-start;
-  width: 80%;
+  justify-content: center; /* 가로 기준 정중앙 정렬 */
+  align-items: center;
+  width: 100%;
   margin: 2em auto;
-}
-
-@media all and (min-width: 600px) {
-  .results {
-    flex-flow: column wrap;
-    max-height: calc(5 * (175px + 2px) + 1 * (15px + 2px));
-    /* 2px for borders */
-  }
-}
-
-@media all and (max-width: 600px) {
-  .results {
-    flex-flow: column nowrap;
-  }
 }
 
 .result {
