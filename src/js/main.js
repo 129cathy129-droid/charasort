@@ -65,7 +65,7 @@ function init() {
   document.querySelector('.sorting.save.button').addEventListener('click', () => pick('tie'));
 
   /** Define keyboard controls (up/down/left/right vimlike k/j/h/l). */
-  document.addEventListener('keypress', (ev) => {
+  document.addEventListener('keydown', (ev) => {
     /** If sorting is in progress. */
     if (timestamp && !timeTaken && !loading && choices.length === battleNo - 1) {
       switch(ev.key) {
@@ -105,6 +105,7 @@ start();
 
 /** Begin sorting. */
 function start() {
+  totalBattles = 0;
   /** Copy data into sorting array to filter. */
   characterDataToSort = characterData.slice(0);
 
@@ -429,6 +430,7 @@ function progressBar(indicator, percentage) {
  * @param {number} [imageNum=3] Number of images to display. Defaults to 3.
  */
 function result(imageNum = 3) {
+  finalCharacters = [];
   document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
   document.querySelector('.time.taken').style.display = 'block';
   
@@ -466,7 +468,6 @@ function result(imageNum = 3) {
 
   let rankNum       = 1;
   let tiedRankNum   = 1;
-  let imageDisplay  = imageNum;
 
   const finalSortedIndexes = sortedIndexList[0].slice(0);
   const resultBox = document.querySelector('.results');
@@ -494,6 +495,8 @@ function result(imageNum = 3) {
       }
     }
   });
+
+  resultBox.insertAdjacentHTML('beforeend', '</tbody></table>');
   
 }
 
@@ -503,10 +506,10 @@ function undo() {
 
   choices = battleNo === battleNoPrev ? choices : choices.slice(0, -1);
 
-  sortedIndexList = sortedIndexListPrev.slice(0);
-  recordDataList  = recordDataListPrev.slice(0);
-  parentIndexList = parentIndexListPrev.slice(0);
-  tiedDataList    = tiedDataListPrev.slice(0);
+  sortedIndexListPrev = structuredClone(sortedIndexList);
+  recordDataListPrev = structuredClone(recordDataList);
+  parentIndexListPrev = structuredClone(parentIndexList);
+  tiedDataListPrev = structuredClone(tiedDataList);
 
   leftIndex       = leftIndexPrev;
   leftInnerIndex  = leftInnerIndexPrev;
@@ -720,7 +723,7 @@ function decodeQuery(queryString = window.location.search.slice(1)) {
           document.getElementById(`cb-${opt.key}-${subindex}`).checked = subIsTrue;
           document.getElementById(`cb-${opt.key}-${subindex}`).disabled = optIsTrue;
         });
-        suboptDecodedIndex = suboptDecodedIndex + optIsTrue ? 1 : 0;
+        if (optIsTrue) suboptDecodedIndex++;
       } else { document.getElementById(`cb-${opt.key}`).checked = optDecoded[index] === '1'; }
     });
 
