@@ -430,7 +430,6 @@ function progressBar(indicator, percentage) {
  */
 function result(imageNum = 3) {
   document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
-  document.querySelector('.image.selector').style.display = 'block';
   document.querySelector('.time.taken').style.display = 'block';
   
   document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
