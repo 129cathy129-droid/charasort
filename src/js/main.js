@@ -420,7 +420,7 @@ function recordData(sortType) {
  */
 function progressBar(indicator, percentage) {
   document.querySelector('.progressbattle').innerHTML =
-    `${indicator} · ${percentage}% sorted`;
+    `${indicator}<br>${percentage}% sorted.`;
 }
 
 /**
