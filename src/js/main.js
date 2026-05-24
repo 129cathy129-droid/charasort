@@ -235,6 +235,7 @@ function start() {
 
   /** Disable all checkboxes and hide/show appropriate parts while we preload the images. */
   document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.disabled = true);
+	
   document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'block');
   document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'block');
   document.querySelector('.progress').style.display = 'block';
