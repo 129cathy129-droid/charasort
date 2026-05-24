@@ -302,3 +302,26 @@ a:hover {
 a:visited {
   color: #6600FF;
 }
+
+.result-table {
+  border-collapse: collapse;
+  width: 400px;
+  margin: 0 auto;
+  background: white;
+}
+
+.result-table th,
+.result-table td {
+  border: 1px solid black;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.result-table th {
+  background: black;
+  color: white;
+}
+
+.result-table td:first-child {
+  width: 60px;
+}
