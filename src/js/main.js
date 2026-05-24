@@ -431,8 +431,6 @@ function progressBar(indicator, percentage) {
  */
 function result(imageNum = 3) {
   finalCharacters = [];
-  document.querySelectorAll('.finished.button').forEach(el => el.style.display = 'block');
-  document.querySelector('.time.taken').style.display = 'block';
   
   document.querySelectorAll('.sorting.button').forEach(el => el.style.display = 'none');
   document.querySelectorAll('.sort.text').forEach(el => el.style.display = 'none');
@@ -448,8 +446,6 @@ function result(imageNum = 3) {
   	</thead>
 	<tbody>
   `;
-  
-  const timeStr = `This sorter was completed on ${new Date(timestamp + timeTaken).toString()} and took ${msToReadableTime(timeTaken)}. <a href="${location.protocol}//${sorterURL}">Do another sorter?</a>`;
   
   const res = (char, num) => {
     return `
