@@ -478,11 +478,10 @@ function result(imageNum = 3) {
   characterDataToSort.forEach((val, idx) => {
     const characterIndex = finalSortedIndexes[idx];
     const character = characterDataToSort[characterIndex];
-    if (imageDisplay-- > 0) {
-      resultTable.insertAdjacentHTML('beforeend', imgRes(character, rankNum));
-    } else {
-      resultTable.insertAdjacentHTML('beforeend', res(character, rankNum));
-    }
+    resultTable.insertAdjacentHTML(
+  		'beforeend',
+  		res(character, rankNum)
+	);
     finalCharacters.push({ rank: rankNum, name: character.name });
 
     if (idx < characterDataToSort.length - 1) {
